@@ -1,0 +1,3 @@
+CUDA_VISIBLE_DEVICES=3 python mainGQ.py --env="Alien-v4" --training_iters=10000000 --memory_size=100000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=40 --dist_th=2 --riqi="0118-2-40"
+
+CUDA_VISIBLE_DEVICES=7 python mainGQ.py --env="MsPacmanNoFrameskip-v4" --training_iters=10000000 --memory_size=100000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=40 --dist_th=2 --riqi="0120-2-40"
