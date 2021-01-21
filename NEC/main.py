@@ -95,7 +95,7 @@ def run_agent(args):
     terminal = False
     aver=np.zeros(training_iters)
     maxeq=np.zeros(training_iters)
-    savename='/home/kpl/results/NEC'+args.riqi+args.env
+    savename=args.save_path+'results/NEC'+args.riqi+args.env
     
     print(savename)
     iterationa=0
@@ -250,6 +250,8 @@ if __name__ == '__main__':
                        help='Epsilon anneal steps')
 
     parser.add_argument('--save_file', type=str, default=None,
+                       help='Name of save file (leave None for no saving)')
+    parser.add_argument('--save_path', type=str, default='/home/kpl/',
                        help='Name of save file (leave None for no saving)')
 
     parser.add_argument('--layer_sizes', type=str, default='64',
