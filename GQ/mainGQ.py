@@ -95,7 +95,7 @@ def run_agent(args):
     terminal = False
     aver=np.zeros(training_iters)
     maxeq=np.zeros(training_iters)
-    savename='./results/GQ'+args.riqi+args.env
+    savename='/home/kpl/results/GQ'+args.riqi+args.env
     
     print(savename)
     iterationa=0
