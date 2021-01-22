@@ -41,6 +41,85 @@ TODO:
 
 主要梳理各个版本中的遗留问题
 
+### 20200522
+
++ 在maze环境跑通的是上一次的IJCAI，但是只有聚类没有图传播，也没有训练
+这个代码最开始是用tvt的框架进行整理的，包括控制，读写，记忆等模块#2020年5月22日
++ 主要关注最初设计的权重更新方式，看看和现在有什么区别，是否有纰漏：
+在这个版本中，直接用位置对Mspacman 进行编码。这里甚至把monster 拿出来进行编码
++ 这里其实遗留了一个问题，如何使用恰当的GNN模型训练得到关键点信息。在早期的版本中是直接用固定权值的aggregater + 聚类算法 完成的 
++ tvt 的构思逻辑还是很精巧的，有空要重读它的代码
++ 如果真想用聚类来完成图中的信息发掘，我们要多尝试一些特征图聚类的方法，不能只用简单的canopy
+
+### 20200908
+
++ 这个版本主要是对maze环境评测，有一定参考价值，但不大
++ 可以用现在的方法替换原先的算法，看看是否有变化，能不能得到相似的将结果
++ networkx 这个库有更好的可以尝试换掉，主要是太慢，在求最短路，和有权值路径的时候很慢，写权重的时候又不能并行
++ 这个版本中Q的更新逻辑：因为这里存的是奖励，所以用的是一步的Q值
+
+        def update_edge(self,state, action, w, state_):
+            old_w= self.Gmemory.edges[state,state_]['weight']
+            old_visits = self.Gmemory.edges[state,state_]['visits']
+            if state_ != 'terminal':
+                edge_list = self.Gmemory.edges(state_)
+                if len(edge_list)==0:
+                    #下一个状态既不是终点
+                    tar = w
+                else:
+                    weight_list = []
+                    for edge_i in edge_list:
+                        weight_list.append(self.Gmemory.edges[edge_i]['weight'])
+                    weight_max = np.max(weight_list)
+                    tar =  w + self.gamma*weight_max
+            else:
+                tar = w
+            delta_w = tar - old_w
+            new_w = old_w + self.lr*delta_w
+            self.Gmemory.add_edge(state,state_,weight=new_w,labels=action,reward=w,visits=old_visits+1)
+
++ 0908是maze环境中的新版本，这个版本**需要重新运行**
+
+### 202012
+
+最初的计划：
+
++ 几个需要实现的baseline算法：A3C DQN PER NEC 
+
++ 我们自己的算法：GBMR(所有模块都有的)，GCMR(只有聚类，没有邻居信息传播的)， GQ(基于图的Q-learning),Q-learning（NEC）。
+
++  最终的指标是得到10million frames的时候一个比分表格，和表现比较好的几个游戏的40millions曲线图, 和一些比较好的中间结果
+
+中间曾经用过一个fassi的库，速度没有太大提升，弃之
+
++ 最开始的版本没有区分动作，所以每个节点存储的是v 不是Q 
++ pyfunction 的使用
++ 存储达到极限会怎么样，是否会影响性能，这个要根据实验结果看一下，要先知道什么时候到达极限，然后要找到对应步骤之后的效果 
++ 压缩边，动作约简，这个思路还没有尝试，我们每个节点的输出边通常都很多
++ kd-tree的实现 
+
+1214基本能够理顺NEC的逻辑
+
++ 重构代码，找到会影响结果的变量，进行筛选调节
++ 训练的时候：NEC 中，target q 是环境交互过程中算出来的累积回报 ， DQN 中，直接用的是即时奖励， 这一点会不会导致结果的根本不同呢?
++ 区分一个问题，再GetAction中得到的value是查表查出来的，是个预测值，在train中用的value 是通过轨迹算出来的，是真实值。也就是往表里写的是真的，但是由于编码有误差，我们查出来的并不一定是真的，我们就是利用这个误差对编码网络进行训练。
+
+可能存在的问题：
+1. 计算逻辑： 对边权的更新方式：
+    原先有一个update edge的模块，好像被舍弃了，现在实际上是有这一部分的，放在addby indices中了
+2. 近邻数量：现在查的是5个，原文是50（和kd-tree的数量相同）
+3. 记忆存储的多少： 原文的default 是500，000， 现在用的是100，000
+
+### 202101
+
+开始的思路还是要进行聚类得到keypoint，由于实现的不好临时放弃了这个想法
++ pong 一直没有效果是怎么回事儿呢？
++ 这个pong 的参数设置有问题，他没有结束，但也没有任何效果，要尝试观察一下输出的距离，或者是不是输入就不一样。
++ 老赵写过一个并行的版本，没会用，有空问问看是咋弄的
++ slowly changing state representations and rapidly updated estimates of the value function.
+
++ 要求我们在更新特征表示的时候不能进行完全替代，要把相近的进行加权，这个过程只发生在写入的过程，而与交互过程无关，
+ 
 + Replay memory 似乎是有上限的，虽然现在没有遇到这个问题
 + 在NEC 的参考代码中有几个参考编码方案，是否会有不同
 + 我们的版本如果不求近替换会怎么样？（这样可以减少一个参数调节的过程 dist 就可以省略掉了）
@@ -62,7 +141,13 @@ TODO:
 
 发现可行的思路和改进方案
 
++ TVT 是一个更宏观一点儿的框架，可以考虑把记忆读写的训练部分加入到终版的模块中
 
++ 与环境相关的联想记忆是可以和位置相关的记忆相结合的一个点
+
+主要参数： dist_th 1 2 3  
+num_neighbours = 20 40 50
+env  MsPacmanNoFrameskip-v4 Alien-v4 Pong-v4 Frostbite-v4 "HeroNoFrameskip-v4"
 
 # 三. Atari 游戏特点分析
 
@@ -71,6 +156,8 @@ TODO:
 2. Alien
 
 3. PingPong
+
+4. "HeroNoFrameskip-v4"
 
 # 四. 新的实验部署方案
 
@@ -88,7 +175,9 @@ TODO:
 
 4. 相关工作算法的实现
     + DQN (不同版本的)
+    + 几个需要实现的baseline算法：A3C DQN PER NEC 
     + NEC
         https://github.com/hiwonjoon/NEC/blob/master/fast_dictionary.py
         https://github.com/mjacar/pytorch-nec
+
 
