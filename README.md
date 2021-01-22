@@ -113,7 +113,7 @@ TODO:
 ### 202101
 
 开始的思路还是要进行聚类得到keypoint，由于实现的不好临时放弃了这个想法
-+ pong 一直没有效果是怎么回事儿呢？
++ pong 一直没有效果是怎么回事儿呢？是不是截取的区域不一样呢
 + 这个pong 的参数设置有问题，他没有结束，但也没有任何效果，要尝试观察一下输出的距离，或者是不是输入就不一样。
 + 老赵写过一个并行的版本，没会用，有空问问看是咋弄的
 + slowly changing state representations and rapidly updated estimates of the value function.
@@ -153,15 +153,30 @@ env  MsPacmanNoFrameskip-v4 Alien-v4 Pong-v4 Frostbite-v4 "HeroNoFrameskip-v4"
 
 1. Mspacman
 
+2:86
+
 2. Alien
 
+6:90
+
 3. PingPong
+18 :102 合着这个截距就是给它设计的，它的效果还不好
+
 
 4. "HeroNoFrameskip-v4"
+8：92
+
 
 # 四. 新的实验部署方案
 
 1. 整理代码方案
+
+MsPacmanNoFrameskip-v4 Alien-v4
+
+NEC 每个两组 做参考
+GQ 每个种参数 2-40 2-20 每个做两组
+GBIL 每个两组参数 2-40-5 2-40-3 2-20-5 2-20-3
+
 
 2. 备份部署
 
