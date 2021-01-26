@@ -12,7 +12,7 @@ NEC 每个两组 做参考
 tmux a -t 0
 CUDA_VISIBLE_DEVICES=7 python main.py --env="MsPacmanNoFrameskip-v4" --training_iters=50000000 --memory_size=500000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --riqi="0122-1" 
 
-tmux a -t 1
+tmux a -t 39
 CUDA_VISIBLE_DEVICES=7 python main.py --env="MsPacmanNoFrameskip-v4" --training_iters=50000000 --memory_size=500000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --riqi="0122-2" 
 
 日期:2021年1月25日 挂掉了
@@ -22,6 +22,7 @@ CUDA_VISIBLE_DEVICES=7 python main.py --env="MsPacmanNoFrameskip-v4" --training_
   what():  Resource temporarily unavailable
 
 为啥？
+2021年1月26日 重开，tmux 39
 
 
 完全一样的参数跑两组
@@ -29,7 +30,7 @@ CUDA_VISIBLE_DEVICES=7 python main.py --env="MsPacmanNoFrameskip-v4" --training_
 tmux a -t 2
 CUDA_VISIBLE_DEVICES=7 python main.py --env="Alien-v4" --training_iters=50000000 --memory_size=500000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --riqi="0122-1" 
 
-tmux a -t 29
+tmux a -t 40
 CUDA_VISIBLE_DEVICES=7 python main.py --env="Alien-v4" --training_iters=50000000 --memory_size=500000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --riqi="0122-2" 
 
 日期:2021年1月25日 挂掉了
@@ -46,3 +47,4 @@ CUDA_VISIBLE_DEVICES=7 python main.py --env="Alien-v4" --training_iters=50000000
   0%|                             | 37681/50000000 [32:36<1094:27:23, 12.68it/s]terminate called after throwing an instance of 'std::system_error'
   what():  Resource temporarily unavailable
 Aborted (core dumped)
+2021年1月26日 重新开启
