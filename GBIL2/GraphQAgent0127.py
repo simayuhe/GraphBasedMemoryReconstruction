@@ -219,7 +219,7 @@ class GraphQAgent():
         else:
           if self.rng.rand() < self.epsilon:
             action = self.rng.randint(0, self.n_actions)
-            #value = Qs[action] # Paper uses maxQ, uncomment for on-policy updates
+            #value = Qs[action] # Paper uses maxQ, uncomment for on-policy updates # 这里是不是要更改value值呢？
 
         self.trajectory_embeddings.append(embedding)
         self.trajectory_values.append(value)
