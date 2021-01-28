@@ -48,3 +48,11 @@ CUDA_VISIBLE_DEVICES=7 python main.py --env="Alien-v4" --training_iters=50000000
   what():  Resource temporarily unavailable
 Aborted (core dumped)
 2021年1月26日 重新开启
+
+2021年1月28日 又挂掉了，这次挂的比较彻底，所有代码重启，所以，进行重新部署：每台机器上只部署一组实验
+
+tmux a -t 0
+CUDA_VISIBLE_DEVICES=0 python main.py --env="MsPacmanNoFrameskip-v4" --training_iters=50000000 --memory_size=500000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --riqi="0128-1" 
+
+tmux a -t 1
+CUDA_VISIBLE_DEVICES=0 python main.py --env="Alien-v4" --training_iters=50000000 --memory_size=500000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --riqi="0128-1" 

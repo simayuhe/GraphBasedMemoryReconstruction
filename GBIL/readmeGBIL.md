@@ -36,3 +36,18 @@ CUDA_VISIBLE_DEVICES=4 python mainGBIL0119.py --env="MsPacmanNoFrameskip-v4" --t
 
 tmux a -t 37
 CUDA_VISIBLE_DEVICES=4 python mainGBIL0119.py --env="MsPacmanNoFrameskip-v4" --training_iters=10000000 --memory_size=100000 --epsilon=0.1 --display_step=10000 --learn_step=4 --num_neighbours=40 --dist_th=2 --riqi="0122-2-40-52" --expert_memory_size=5 --save_path='/home/kpl/'
+
+--------------------------------------------------------------------------------
+2021年1月28日
+
+tmux a -t 6
+CUDA_VISIBLE_DEVICES=3 python mainGBIL0119.py --env="MsPacmanNoFrameskip-v4" --training_iters=10000000 --memory_size=100000 --epsilon=0.1 --display_step=10000 --learn_step=4 --num_neighbours=20 --dist_th=2 --riqi="0128-2-20-3" --expert_memory_size=3 --save_path='/home/kpl/'
+
+tmux a -t 7
+CUDA_VISIBLE_DEVICES=3 python mainGBIL0119.py --env="MsPacmanNoFrameskip-v4" --training_iters=10000000 --memory_size=100000 --epsilon=0.1 --display_step=10000 --learn_step=4 --num_neighbours=20 --dist_th=2 --riqi="0128-2-20-5" --expert_memory_size=5 --save_path='/home/kpl/'
+
+tmux a -t 8
+CUDA_VISIBLE_DEVICES=4 python mainGBIL0119.py --env="Alien-v4" --training_iters=10000000 --memory_size=100000 --epsilon=0.1 --display_step=10000 --learn_step=4 --num_neighbours=20 --dist_th=2 --riqi="0128-2-20-3" --expert_memory_size=3 --save_path='/home/kpl/'
+
+tmux a -t 9
+CUDA_VISIBLE_DEVICES=4 python mainGBIL0119.py --env="Alien-v4" --training_iters=10000000 --memory_size=100000 --epsilon=0.1 --display_step=10000 --learn_step=4 --num_neighbours=20 --dist_th=2 --riqi="0128-2-20-5" --expert_memory_size=5 --save_path='/home/kpl/'
