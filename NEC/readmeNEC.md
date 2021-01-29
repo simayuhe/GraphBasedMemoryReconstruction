@@ -55,4 +55,12 @@ tmux a -t 0
 CUDA_VISIBLE_DEVICES=0 python main.py --env="MsPacmanNoFrameskip-v4" --training_iters=50000000 --memory_size=500000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --riqi="0128-1" 
 
 tmux a -t 1
-CUDA_VISIBLE_DEVICES=0 python main.py --env="Alien-v4" --training_iters=50000000 --memory_size=500000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --riqi="0128-1" 
+CUDA_VISIBLE_DEVICES=0 python main.py --env="Alien-v4" --training_iters=50000000 --memory_size=500000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --riqi="0128-1"
+
+日期 2021年1月29日 多加一组备份 在gbil 节点上,明明的结尾加了一个b,重新复制显示文件
+
+tmux a -t 0
+CUDA_VISIBLE_DEVICES=0 python main.py --env="MsPacmanNoFrameskip-v4" --training_iters=50000000 --memory_size=500000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --riqi="0128-1b" 
+
+tmux a -t 1
+CUDA_VISIBLE_DEVICES=0 python main.py --env="Alien-v4" --training_iters=50000000 --memory_size=500000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --riqi="0128-1b"

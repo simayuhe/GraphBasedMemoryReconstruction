@@ -9,6 +9,12 @@ TODO:
 + 部署ENVTEST,NEC，GQ, GQIL, GQSI
 + 建立结果分析比较平台
 
+# 环境
+
+tensorflow_gpu 1.14.0
+scikit-image
+sklearn
+annoy
 
 # 一.值迭代的基本逻辑检查
 
