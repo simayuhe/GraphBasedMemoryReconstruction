@@ -88,3 +88,9 @@ CUDA_VISIBLE_DEVICES=0 python main.py --env="Frostbite-v4" --training_iters=5000
 
 tmux a -t 21
 CUDA_VISIBLE_DEVICES=2 python main.py --env="Hero-v4" --training_iters=50000000 --memory_size=500000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --riqi="0227-1c"
+
+
+gbmr
+
+tmux a -t 22
+CUDA_VISIBLE_DEVICES=3 python main.py --env="Hero-v4" --training_iters=50000000 --memory_size=500000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --riqi="0227-1b"

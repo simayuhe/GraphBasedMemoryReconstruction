@@ -126,3 +126,10 @@ CUDA_VISIBLE_DEVICES=7 python mainGBIL0225.py --env="Frostbite-v4" --training_it
 
 tmux a -t 23
 CUDA_VISIBLE_DEVICES=3 python mainGBIL0225.py --env="Hero-v4" --training_iters=10000000 --memory_size=100000 --epsilon=0.1 --display_step=10000 --learn_step=4 --num_neighbours=50 --dist_th=2 --riqi="0227-2-50c" --expert_memory_size=10 --save_path='/home/kpl/'
+
+
+gbmr
+
+
+tmux a -t 24
+CUDA_VISIBLE_DEVICES=4 python mainGBIL0225.py --env="Hero-v4" --training_iters=10000000 --memory_size=100000 --epsilon=0.1 --display_step=10000 --learn_step=4 --num_neighbours=50 --dist_th=2 --riqi="0227-2-50b" --expert_memory_size=10 --save_path='/home/kpl/'
