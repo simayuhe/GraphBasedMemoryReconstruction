@@ -64,3 +64,11 @@ CUDA_VISIBLE_DEVICES=0 python main.py --env="MsPacmanNoFrameskip-v4" --training_
 
 tmux a -t 1
 CUDA_VISIBLE_DEVICES=0 python main.py --env="Alien-v4" --training_iters=50000000 --memory_size=500000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --riqi="0128-1b"
+
+
+2021年2月27日
+tmux a -t 0
+CUDA_VISIBLE_DEVICES=0 python main.py --env="MsPacman-v4" --training_iters=50000000 --memory_size=500000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --riqi="0227-1b" 
+
+tmux a -t 1
+CUDA_VISIBLE_DEVICES=0 python main.py --env="Frostbite-v4" --training_iters=50000000 --memory_size=500000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --riqi="0227-1b"

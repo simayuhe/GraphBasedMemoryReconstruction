@@ -49,4 +49,4 @@ if __name__ == '__main__':
     print("first come here")
     from gym import envs
     print(envs.registry.all())
-    testenvs()
+    #testenvs()
