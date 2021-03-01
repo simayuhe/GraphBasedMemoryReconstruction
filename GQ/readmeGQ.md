@@ -114,3 +114,21 @@ CUDA_VISIBLE_DEVICES=2 python mainGQ.py --env="Frostbite-v4" --training_iters=10
 
 tmux a -t 5
 CUDA_VISIBLE_DEVICES=2 python mainGQ.py --env="Frostbite-v4" --training_iters=10000000 --memory_size=100000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --dist_th=2 --riqi="0227-2-50b" --save_path='/home/kpl/'
+
+
+日期 2021年3月1日
+gbil
+
+tmux a -t 2
+CUDA_VISIBLE_DEVICES=1 python mainGQ.py --env="MsPacman-v4" --training_iters=10000000 --memory_size=100000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=20 --dist_th=2 --riqi="0227-2-20c" 
+tmux a -t 3
+CUDA_VISIBLE_DEVICES=1 python mainGQ.py --env="MsPacman-v4" --training_iters=10000000 --memory_size=100000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --dist_th=2 --riqi="0227-2-50c"
+
+tmux a -t 4
+CUDA_VISIBLE_DEVICES=2 python mainGQ.py --env="Frostbite-v4" --training_iters=10000000 --memory_size=100000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=20 --dist_th=2 --riqi="0227-2-20c"  --save_path='/home/kpl/'
+
+tmux a -t 5
+CUDA_VISIBLE_DEVICES=2 python mainGQ.py --env="Frostbite-v4" --training_iters=10000000 --memory_size=100000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --dist_th=2 --riqi="0227-2-50c" --save_path='/home/kpl/'
+
+tmux a -t 22
+CUDA_VISIBLE_DEVICES=2 python mainGQ.py --env="Hero-v4" --training_iters=10000000 --memory_size=100000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --dist_th=2 --riqi="0227-2-50c" --save_path='/home/kpl/'

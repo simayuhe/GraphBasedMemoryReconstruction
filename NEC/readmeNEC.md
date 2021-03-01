@@ -72,3 +72,19 @@ CUDA_VISIBLE_DEVICES=0 python main.py --env="MsPacman-v4" --training_iters=50000
 
 tmux a -t 1
 CUDA_VISIBLE_DEVICES=0 python main.py --env="Frostbite-v4" --training_iters=50000000 --memory_size=500000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --riqi="0227-1b"
+
+
+日期： 2021年3月1日
+
+gbil 备份， 为了区分，名称中以c 标出
+
+tmux a -t 0
+CUDA_VISIBLE_DEVICES=0 python main.py --env="MsPacman-v4" --training_iters=50000000 --memory_size=500000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --riqi="0227-1c" 
+
+
+tmux a -t 1
+CUDA_VISIBLE_DEVICES=0 python main.py --env="Frostbite-v4" --training_iters=50000000 --memory_size=500000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --riqi="0227-1c"
+
+
+tmux a -t 21
+CUDA_VISIBLE_DEVICES=2 python main.py --env="Hero-v4" --training_iters=50000000 --memory_size=500000  --epsilon=0.1  --display_step=10000 --learn_step=4 --num_neighbours=50 --riqi="0227-1c"

@@ -101,4 +101,28 @@ tmux a -t 20
 CUDA_VISIBLE_DEVICES=7 python mainGBIL0225.py --env="Frostbite-v4" --training_iters=10000000 --memory_size=100000 --epsilon=0.1 --display_step=10000 --learn_step=4 --num_neighbours=20 --dist_th=2 --riqi="0227-2-20b" --expert_memory_size=10 --save_path='/home/kpl/'
 
 tmux a -t 21
-CUDA_VISIBLE_DEVICES=7 python mainGBIL0225.py --env="Frostbite-v4" --training_iters=10000000 --memory_size=100000 --epsilon=0.1 --display_step=10000 --learn_step=4 --num_neighbours=50 --dist_th=2 --riqi="0227-2-50b" --expert_memory_size=10 --save_path='/home/kpl/'
+CUDA_VISIBLE_DEVICES=7 python mainGBIL0225.py --env="Frostbite-v4" --training_iters=10000000 --memory_size=100000 --epsilon=0.1 --display_step=10000 --learn_step=4 --num_neighbours=50 --dist_th=2 --riqi="0227-2-50b" --expert_memory_size=10 --save_path='/home/kpl/'\
+
+2021年3月1日
+gbil
+
+tmux a -t 13
+CUDA_VISIBLE_DEVICES=6 python mainGBIL0225.py --env="MsPacman-v4" --training_iters=10000000 --memory_size=100000 --epsilon=0.1 --display_step=10000 --learn_step=4 --num_neighbours=20 --dist_th=2 --riqi="0227-2-20c" --expert_memory_size=10 --save_path='/home/kpl/' 
+
+tmux a -t 14
+CUDA_VISIBLE_DEVICES=6 python mainGBIL0225.py --env="MsPacman-v4" --training_iters=10000000 --memory_size=100000 --epsilon=0.1 --display_step=10000 --learn_step=4 --num_neighbours=50 --dist_th=2 --riqi="0227-2-50c" --expert_memory_size=10 --save_path='/home/kpl/'
+
+tmux a -t 15
+CUDA_VISIBLE_DEVICES=7 python mainGBIL0225.py --env="Alien-v4" --training_iters=10000000 --memory_size=100000 --epsilon=0.1 --display_step=10000 --learn_step=4 --num_neighbours=20 --dist_th=2 --riqi="0227-2-20c" --expert_memory_size=10 --save_path='/home/kpl/'
+
+tmux a -t 16
+CUDA_VISIBLE_DEVICES=7 python mainGBIL0225.py --env="Alien-v4" --training_iters=10000000 --memory_size=100000 --epsilon=0.1 --display_step=10000 --learn_step=4 --num_neighbours=50 --dist_th=2 --riqi="0227-2-50c" --expert_memory_size=10 --save_path='/home/kpl/'
+
+tmux a -t 17
+CUDA_VISIBLE_DEVICES=7 python mainGBIL0225.py --env="Frostbite-v4" --training_iters=10000000 --memory_size=100000 --epsilon=0.1 --display_step=10000 --learn_step=4 --num_neighbours=20 --dist_th=2 --riqi="0227-2-20c" --expert_memory_size=10 --save_path='/home/kpl/'
+
+tmux a -t 18
+CUDA_VISIBLE_DEVICES=7 python mainGBIL0225.py --env="Frostbite-v4" --training_iters=10000000 --memory_size=100000 --epsilon=0.1 --display_step=10000 --learn_step=4 --num_neighbours=50 --dist_th=2 --riqi="0227-2-50c" --expert_memory_size=10 --save_path='/home/kpl/'
+
+tmux a -t 23
+CUDA_VISIBLE_DEVICES=3 python mainGBIL0225.py --env="Hero-v4" --training_iters=10000000 --memory_size=100000 --epsilon=0.1 --display_step=10000 --learn_step=4 --num_neighbours=50 --dist_th=2 --riqi="0227-2-50c" --expert_memory_size=10 --save_path='/home/kpl/'
