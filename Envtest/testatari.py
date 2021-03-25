@@ -27,7 +27,11 @@ def deepmind_preprocessor(state):
 def testenvs():
     #env = gym.make("CartPole-v1")
     #env = gym.make("MsPacman-v0")
-    name = "HeroNoFrameskip-v4"
+    #name = "HeroNoFrameskip-v4"
+    # name = "Amidar-v4" 
+    # name = "Atlantis-v4" #射击类
+    # name = "BankHeist-v4" # 追逐类，不一定好用，要识别物体之间的相对关系
+    name ="DemonAttack-v4"
     env = gym.make(name)
     observation = env.reset()
     print("observation",observation.shape)
@@ -49,4 +53,4 @@ if __name__ == '__main__':
     print("first come here")
     from gym import envs
     print(envs.registry.all())
-    #testenvs()
+    testenvs()
